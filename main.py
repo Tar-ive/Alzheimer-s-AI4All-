@@ -6,6 +6,8 @@ from components.feature_analysis import show_feature_analysis
 from components.model_prediction import show_model_prediction
 from components.visualizations import show_visualizations
 from components.advanced_analysis import show_advanced_analysis
+from components.feature_analysis import show_feature_analysis
+
 
 # Page config
 st.set_page_config(
