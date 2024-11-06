@@ -1,0 +1,183 @@
+Collecting usage statistics. To deactivate, set browser.gatherUsageStats to false.
+
+
+  You can now view your Streamlit app in your browser.
+
+  URL: http://0.0.0.0:5000
+
+2024-11-06 00:39:47.342 Uncaught app exception
+Traceback (most recent call last):
+  File "/home/runner/Streamlit-SVM-Visualizer/.pythonlibs/lib/python3.11/site-packages/streamlit/runtime/caching/hashing.py", line 563, in _to_bytes
+    reduce_data = obj.__reduce__()
+                  ^^^^^^^^^^^^^^^^
+  File "/nix/store/f98g7xbckgqbkagdvpzc2r6lv3h1p9ki-python3-3.11.9/lib/python3.11/copyreg.py", line 76, in _reduce_ex
+    raise TypeError(f"cannot pickle {cls.__name__!r} object")
+TypeError: cannot pickle 'function' object
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/runner/Streamlit-SVM-Visualizer/.pythonlibs/lib/python3.11/site-packages/streamlit/runtime/caching/cache_utils.py", line 423, in _make_value_key
+    update_hash(
+  File "/home/runner/Streamlit-SVM-Visualizer/.pythonlibs/lib/python3.11/site-packages/streamlit/runtime/caching/hashing.py", line 160, in update_hash
+    ch.update(hasher, val)
+  File "/home/runner/Streamlit-SVM-Visualizer/.pythonlibs/lib/python3.11/site-packages/streamlit/runtime/caching/hashing.py", line 343, in update
+    b = self.to_bytes(obj)
+        ^^^^^^^^^^^^^^^^^^
+  File "/home/runner/Streamlit-SVM-Visualizer/.pythonlibs/lib/python3.11/site-packages/streamlit/runtime/caching/hashing.py", line 325, in to_bytes
+    b = b"%s:%s" % (tname, self._to_bytes(obj))
+                           ^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/Streamlit-SVM-Visualizer/.pythonlibs/lib/python3.11/site-packages/streamlit/runtime/caching/hashing.py", line 568, in _to_bytes
+    self.update(h, item)
+  File "/home/runner/Streamlit-SVM-Visualizer/.pythonlibs/lib/python3.11/site-packages/streamlit/runtime/caching/hashing.py", line 343, in update
+    b = self.to_bytes(obj)
+        ^^^^^^^^^^^^^^^^^^
+  File "/home/runner/Streamlit-SVM-Visualizer/.pythonlibs/lib/python3.11/site-packages/streamlit/runtime/caching/hashing.py", line 325, in to_bytes
+    b = b"%s:%s" % (tname, self._to_bytes(obj))
+                           ^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/Streamlit-SVM-Visualizer/.pythonlibs/lib/python3.11/site-packages/streamlit/runtime/caching/hashing.py", line 565, in _to_bytes
+    raise UnhashableTypeError() from ex
+streamlit.runtime.caching.cache_errors.UnhashableTypeError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/runner/Streamlit-SVM-Visualizer/.pythonlibs/lib/python3.11/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 88, in exec_func_with_error_handling
+    result = func()
+             ^^^^^^
+  File "/home/runner/Streamlit-SVM-Visualizer/.pythonlibs/lib/python3.11/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 579, in code_to_exec
+    exec(code, module.__dict__)
+  File "/home/runner/Streamlit-SVM-Visualizer/main.py", line 76, in <module>
+    show_model_prediction(X, y)
+  File "/home/runner/Streamlit-SVM-Visualizer/components/model_prediction.py", line 63, in show_model_prediction
+    importance_df = calculate_feature_importance(model, X_train_scaled, y_train, X.columns)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/Streamlit-SVM-Visualizer/.pythonlibs/lib/python3.11/site-packages/streamlit/runtime/caching/cache_utils.py", line 210, in __call__
+    return self._get_or_create_cached_value(args, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/Streamlit-SVM-Visualizer/.pythonlibs/lib/python3.11/site-packages/streamlit/runtime/caching/cache_utils.py", line 224, in _get_or_create_cached_value
+    value_key = _make_value_key(
+                ^^^^^^^^^^^^^^^^
+  File "/home/runner/Streamlit-SVM-Visualizer/.pythonlibs/lib/python3.11/site-packages/streamlit/runtime/caching/cache_utils.py", line 431, in _make_value_key
+    raise UnhashableParamError(cache_type, func, arg_name, arg_value, exc)
+  File "/home/runner/Streamlit-SVM-Visualizer/.pythonlibs/lib/python3.11/site-packages/streamlit/runtime/caching/cache_utils.py", line 423, in _make_value_key
+    update_hash(
+  File "/home/runner/Streamlit-SVM-Visualizer/.pythonlibs/lib/python3.11/site-packages/streamlit/runtime/caching/hashing.py", line 160, in update_hash
+    ch.update(hasher, val)
+  File "/home/runner/Streamlit-SVM-Visualizer/.pythonlibs/lib/python3.11/site-packages/streamlit/runtime/caching/hashing.py", line 343, in update
+    b = self.to_bytes(obj)
+        ^^^^^^^^^^^^^^^^^^
+  File "/home/runner/Streamlit-SVM-Visualizer/.pythonlibs/lib/python3.11/site-packages/streamlit/runtime/caching/hashing.py", line 325, in to_bytes
+    b = b"%s:%s" % (tname, self._to_bytes(obj))
+                           ^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/Streamlit-SVM-Visualizer/.pythonlibs/lib/python3.11/site-packages/streamlit/runtime/caching/hashing.py", line 568, in _to_bytes
+    self.update(h, item)
+  File "/home/runner/Streamlit-SVM-Visualizer/.pythonlibs/lib/python3.11/site-packages/streamlit/runtime/caching/hashing.py", line 343, in update
+    b = self.to_bytes(obj)
+        ^^^^^^^^^^^^^^^^^^
+  File "/home/runner/Streamlit-SVM-Visualizer/.pythonlibs/lib/python3.11/site-packages/streamlit/runtime/caching/hashing.py", line 325, in to_bytes
+    b = b"%s:%s" % (tname, self._to_bytes(obj))
+                           ^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/Streamlit-SVM-Visualizer/.pythonlibs/lib/python3.11/site-packages/streamlit/runtime/caching/hashing.py", line 565, in _to_bytes
+    raise UnhashableTypeError() from ex
+streamlit.runtime.caching.cache_errors.UnhashableParamError: Cannot hash argument 'model' (of type `sklearn.svm._classes.SVC`) in 'calculate_feature_importance'.
+
+To address this, you can tell Streamlit not to hash this argument by adding a
+leading underscore to the argument's name in the function signature:
+
+```
+@st.cache_resource
+def calculate_feature_importance(_model, ...):
+    ...
+```
+            
+/home/runner/Streamlit-SVM-Visualizer/components/advanced_analysis.py:43: SmallSampleWarning:
+
+One or more sample arguments is too small; all returned values will be NaN. See documentation for sample size requirements.
+
+2024-11-06 00:40:09.173 Uncaught app exception
+Traceback (most recent call last):
+  File "/home/runner/Streamlit-SVM-Visualizer/.pythonlibs/lib/python3.11/site-packages/streamlit/runtime/caching/hashing.py", line 563, in _to_bytes
+    reduce_data = obj.__reduce__()
+                  ^^^^^^^^^^^^^^^^
+  File "/nix/store/f98g7xbckgqbkagdvpzc2r6lv3h1p9ki-python3-3.11.9/lib/python3.11/copyreg.py", line 76, in _reduce_ex
+    raise TypeError(f"cannot pickle {cls.__name__!r} object")
+TypeError: cannot pickle 'function' object
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/runner/Streamlit-SVM-Visualizer/.pythonlibs/lib/python3.11/site-packages/streamlit/runtime/caching/cache_utils.py", line 423, in _make_value_key
+    update_hash(
+  File "/home/runner/Streamlit-SVM-Visualizer/.pythonlibs/lib/python3.11/site-packages/streamlit/runtime/caching/hashing.py", line 160, in update_hash
+    ch.update(hasher, val)
+  File "/home/runner/Streamlit-SVM-Visualizer/.pythonlibs/lib/python3.11/site-packages/streamlit/runtime/caching/hashing.py", line 343, in update
+    b = self.to_bytes(obj)
+        ^^^^^^^^^^^^^^^^^^
+  File "/home/runner/Streamlit-SVM-Visualizer/.pythonlibs/lib/python3.11/site-packages/streamlit/runtime/caching/hashing.py", line 325, in to_bytes
+    b = b"%s:%s" % (tname, self._to_bytes(obj))
+                           ^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/Streamlit-SVM-Visualizer/.pythonlibs/lib/python3.11/site-packages/streamlit/runtime/caching/hashing.py", line 568, in _to_bytes
+    self.update(h, item)
+  File "/home/runner/Streamlit-SVM-Visualizer/.pythonlibs/lib/python3.11/site-packages/streamlit/runtime/caching/hashing.py", line 343, in update
+    b = self.to_bytes(obj)
+        ^^^^^^^^^^^^^^^^^^
+  File "/home/runner/Streamlit-SVM-Visualizer/.pythonlibs/lib/python3.11/site-packages/streamlit/runtime/caching/hashing.py", line 325, in to_bytes
+    b = b"%s:%s" % (tname, self._to_bytes(obj))
+                           ^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/Streamlit-SVM-Visualizer/.pythonlibs/lib/python3.11/site-packages/streamlit/runtime/caching/hashing.py", line 565, in _to_bytes
+    raise UnhashableTypeError() from ex
+streamlit.runtime.caching.cache_errors.UnhashableTypeError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/runner/Streamlit-SVM-Visualizer/.pythonlibs/lib/python3.11/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 88, in exec_func_with_error_handling
+    result = func()
+             ^^^^^^
+  File "/home/runner/Streamlit-SVM-Visualizer/.pythonlibs/lib/python3.11/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 579, in code_to_exec
+    exec(code, module.__dict__)
+  File "/home/runner/Streamlit-SVM-Visualizer/main.py", line 76, in <module>
+    show_model_prediction(X, y)
+  File "/home/runner/Streamlit-SVM-Visualizer/components/model_prediction.py", line 63, in show_model_prediction
+    importance_df = calculate_feature_importance(model, X_train_scaled, y_train, X.columns)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/Streamlit-SVM-Visualizer/.pythonlibs/lib/python3.11/site-packages/streamlit/runtime/caching/cache_utils.py", line 210, in __call__
+    return self._get_or_create_cached_value(args, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/Streamlit-SVM-Visualizer/.pythonlibs/lib/python3.11/site-packages/streamlit/runtime/caching/cache_utils.py", line 224, in _get_or_create_cached_value
+    value_key = _make_value_key(
+                ^^^^^^^^^^^^^^^^
+  File "/home/runner/Streamlit-SVM-Visualizer/.pythonlibs/lib/python3.11/site-packages/streamlit/runtime/caching/cache_utils.py", line 431, in _make_value_key
+    raise UnhashableParamError(cache_type, func, arg_name, arg_value, exc)
+  File "/home/runner/Streamlit-SVM-Visualizer/.pythonlibs/lib/python3.11/site-packages/streamlit/runtime/caching/cache_utils.py", line 423, in _make_value_key
+    update_hash(
+  File "/home/runner/Streamlit-SVM-Visualizer/.pythonlibs/lib/python3.11/site-packages/streamlit/runtime/caching/hashing.py", line 160, in update_hash
+    ch.update(hasher, val)
+  File "/home/runner/Streamlit-SVM-Visualizer/.pythonlibs/lib/python3.11/site-packages/streamlit/runtime/caching/hashing.py", line 343, in update
+    b = self.to_bytes(obj)
+        ^^^^^^^^^^^^^^^^^^
+  File "/home/runner/Streamlit-SVM-Visualizer/.pythonlibs/lib/python3.11/site-packages/streamlit/runtime/caching/hashing.py", line 325, in to_bytes
+    b = b"%s:%s" % (tname, self._to_bytes(obj))
+                           ^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/Streamlit-SVM-Visualizer/.pythonlibs/lib/python3.11/site-packages/streamlit/runtime/caching/hashing.py", line 568, in _to_bytes
+    self.update(h, item)
+  File "/home/runner/Streamlit-SVM-Visualizer/.pythonlibs/lib/python3.11/site-packages/streamlit/runtime/caching/hashing.py", line 343, in update
+    b = self.to_bytes(obj)
+        ^^^^^^^^^^^^^^^^^^
+  File "/home/runner/Streamlit-SVM-Visualizer/.pythonlibs/lib/python3.11/site-packages/streamlit/runtime/caching/hashing.py", line 325, in to_bytes
+    b = b"%s:%s" % (tname, self._to_bytes(obj))
+                           ^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/Streamlit-SVM-Visualizer/.pythonlibs/lib/python3.11/site-packages/streamlit/runtime/caching/hashing.py", line 565, in _to_bytes
+    raise UnhashableTypeError() from ex
+streamlit.runtime.caching.cache_errors.UnhashableParamError: Cannot hash argument 'model' (of type `sklearn.svm._classes.SVC`) in 'calculate_feature_importance'.
+
+To address this, you can tell Streamlit not to hash this argument by adding a
+leading underscore to the argument's name in the function signature:
+
+```
+@st.cache_resource
+def calculate_feature_importance(_model, ...):
+    ...
+```
+            

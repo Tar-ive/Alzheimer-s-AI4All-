@@ -46,14 +46,14 @@ def show_model_prediction(X, y):
     st.subheader("Feature Importance Analysis")
     
     @st.cache_resource
-    def calculate_feature_importance(model, X_train_scaled, y_train, X_columns):
+    def calculate_feature_importance(_model, X_train_scaled, y_train, feature_names):
         # Calculate permutation importance
-        r = permutation_importance(model, X_train_scaled, y_train,
+        r = permutation_importance(_model, X_train_scaled, y_train,
                                  n_repeats=10, random_state=42)
         
         # Create importance DataFrame
         importance_df = pd.DataFrame({
-            'Feature': X_columns,
+            'Feature': feature_names,
             'Importance': r.importances_mean
         })
         importance_df = importance_df.sort_values('Importance', ascending=True)
