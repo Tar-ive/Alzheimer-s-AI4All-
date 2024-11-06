@@ -1,0 +1,125 @@
+
+Search datasets…
+Login
+
+DARWIN
+Donated on 5/11/2022
+The DARWIN dataset includes handwriting data from 174 participants. The classification task consists in distinguishing Alzheimer’s disease patients from healthy people.
+
+Dataset Characteristics
+Tabular
+
+Subject Area
+Health and Medicine
+
+Associated Tasks
+Classification
+
+Feature Type
+-
+
+# Instances
+174
+
+# Features
+451
+
+Dataset Information
+For what purpose was the dataset created?
+
+The DARWIN dataset was created to allow researchers to improve the existing machine learning methodologies for the prediction of Alzheimer's disease via handwriting analysis.
+
+Has Missing Values?
+
+No
+
+Introductory Paper
+Diagnosing Alzheimer’s disease from on-line handwriting: A novel dataset and performance benchmarking
+By Nicole D. Cilia, Giuseppe De Gregorio , Claudio De Stefano, Francesco Fontanella, Angelo Marcelli, Antonio Parziale . 2022
+
+Published in Journal
+
+Variables Table
+Variable Name	Role	Type	Description	Units	Missing Values
+ID	Feature	Categorical			no
+air_time1	Feature	Integer			no
+disp_index1	Feature	Categorical			no
+gmrt_in_air1	Feature	Continuous			no
+gmrt_on_paper1	Feature	Continuous			no
+max_x_extension1	Feature	Integer			no
+max_y_extension1	Feature	Integer			no
+mean_acc_in_air1	Feature	Continuous			no
+mean_acc_on_paper1	Feature	Continuous			no
+mean_gmrt1	Feature	Continuous			no
+Rows per page 
+0 to 10 of 452
+
+Dataset Files
+File	Size
+data.csv	723.1 KB
+DARWIN.zip	332.2 KB
+Reviews
+There are no reviews for this dataset yet.
+
+Write a Review
+
+Comments
+
+Install the ucimlrepo package 
+pip install ucimlrepo
+Import the dataset into your code 
+from ucimlrepo import fetch_ucirepo 
+  
+# fetch dataset 
+darwin = fetch_ucirepo(id=732) 
+  
+# data (as pandas dataframes) 
+X = darwin.data.features 
+y = darwin.data.targets 
+  
+# metadata 
+print(darwin.metadata) 
+  
+# variable information 
+print(darwin.variables) 
+View the full documentation
+1 citations
+18174 views
+Citation
+Fontanella, F. (2022). DARWIN [Dataset]. UCI Machine Learning Repository. https://doi.org/10.24432/C55D0K.
+Style:
+Citations/Acknowledgements
+If you use this dataset, please cite:
+
+N. D. Cilia, C. De Stefano, F. Fontanella, A. S. Di Freca, An experimental protocol to support cognitive impairment diagnosis by using handwriting analysis, Procedia Computer Science 141 (2018) 466–471. https://doi.org/10.1016/j.procs.2018.10.141
+
+N. D. Cilia, G. De Gregorio, C. De Stefano, F. Fontanella, A. Marcelli, A. Parziale, Diagnosing Alzheimer’s disease from online handwriting: A novel dataset and performance benchmarking, Engineering Applications of Artificial Intelligence, Vol. 111 (20229) 104822. https://doi.org/10.1016/j.engappai.2022.104822
+
+Keywords
+Alzheimer's disease
+Neurodegenerative diseases
+Handwriting analysis
+Creators
+Francesco Fontanella
+
+fontanella@unicas.it
+
+DOI
+10.24432/C55D0K
+License
+This dataset is licensed under a Creative Commons Attribution 4.0 International (CC BY 4.0) license.
+
+This allows for the sharing and adaptation of the datasets for any purpose, provided that the appropriate credit is given.
+
+THE PROJECT
+About Us
+CML
+National Science Foundation
+NAVIGATION
+Home
+View Datasets
+Donate a Dataset
+LOGISTICS
+Contact
+Privacy Notice
+Feature Request or Bug Report
