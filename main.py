@@ -1,6 +1,7 @@
 import streamlit as st
 from ucimlrepo import fetch_ucirepo
 import pandas as pd
+import numpy as np
 from components.dataset_info import show_dataset_info
 from components.feature_analysis import show_feature_analysis
 from components.model_prediction import show_model_prediction
@@ -24,8 +25,35 @@ st.markdown("""
 # Load data
 @st.cache_data
 def load_data():
-    darwin = fetch_ucirepo(id=732)
-    return darwin.data.features, darwin.data.targets, darwin.metadata, darwin.variables
+    try:
+        darwin = fetch_ucirepo(id=732)
+        X = darwin.data.features
+        y = darwin.data.targets
+        
+        # Handle ID column
+        id_column = None
+        for col in X.columns:
+            if 'id' in col.lower():
+                id_column = col
+                break
+        
+        if id_column:
+            # Store ID column separately if needed
+            ids = X[id_column].copy()
+            # Drop ID column from features
+            X = X.drop(columns=[id_column])
+        
+        # Convert all columns to numeric, replacing any errors with NaN
+        X = X.apply(pd.to_numeric, errors='coerce')
+        
+        # Check for any remaining non-numeric columns or NaN values
+        nan_columns = X.columns[X.isna().any()].tolist()
+        if nan_columns:
+            raise ValueError(f"The following columns contain non-numeric values: {nan_columns}")
+        
+        return X, y, darwin.metadata, darwin.variables
+    except Exception as e:
+        raise Exception(f"Error processing data: {str(e)}")
 
 try:
     X, y, metadata, variables = load_data()
@@ -48,4 +76,4 @@ try:
         
 except Exception as e:
     st.error(f"Error loading data: {str(e)}")
-    st.info("Please make sure you have internet connection and required packages installed.")
+    st.info("Please ensure all features are numeric and properly formatted. Check the error message for details about problematic columns.")
