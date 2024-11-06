@@ -46,8 +46,8 @@ def show_model_prediction(X, y):
     # Select random sample
     if st.button("Get Random Sample"):
         sample_idx = np.random.randint(0, len(X_test))
-        sample_X = X_test.iloc[sample_idx:sample_idx+1]
-        sample_y = y_test.iloc[sample_idx]
+        sample_X = X_test[sample_idx:sample_idx+1]  # Use numpy indexing instead of iloc
+        sample_y = y_test[sample_idx]  # Use numpy indexing instead of iloc
         
         # Make prediction
         prediction = model.predict(scaler.transform(sample_X))
