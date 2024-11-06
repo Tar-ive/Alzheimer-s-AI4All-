@@ -1,21 +1,33 @@
 [tool.poetry]
 name = "ai-4all-alzheimers"
 version = "0.1.0"
-description = "Add your description here"
-authors = ["tarive22@gmail.com"]  
-license = "MIT"  
-readme = "README.md" 
-homepage = "https://yourprojecthomepage.com" 
-repository = "https://github.com/Tar-ive/Alzheimer-s-AI4All-"  
+description = "AI for Alzheimer's research using machine learning and data visualization tools"
+authors = ["tarive22@gmail.com", "iamendivine@gmail.com", "nan13805182231@163.com", "naike24m@mtholyoke.edu"]
+license = "MIT"
+readme = "README.md"
+homepage = ""
+repository = "https://github.com/Tar-ive/Alzheimer-s-AI4All-"
 
-# Existing project section
-[project]
+# Specify the Python version
 requires-python = ">=3.11"
-dependencies = [
-    "plotly>=5.24.1",
-    "scikit-learn>=1.5.2",
-    "scipy>=1.14.1",
-    "seaborn>=0.13.2",
-    "streamlit>=1.39.0",
-    "ucimlrepo>=0.0.7",
-]
+
+# Dependencies for the project
+[tool.poetry.dependencies]
+python = ">=3.11"
+plotly = "^5.24.1"
+scikit-learn = "^1.5.2"
+scipy = "^1.14.1"
+seaborn = "^0.13.2"
+streamlit = "^1.39.0"
+ucimlrepo = "^0.0.7"
+
+# Development dependencies (if needed)
+[tool.poetry.dev-dependencies]
+pytest = "^7.0"  # Example: for testing
+
+# Additional settings
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+package-mode = false
