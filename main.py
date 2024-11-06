@@ -1,5 +1,4 @@
 import streamlit as st
-from ucimlrepo import fetch_ucirepo
 import pandas as pd
 import numpy as np
 from components.dataset_info import show_dataset_info
@@ -26,38 +25,37 @@ st.markdown("""
 @st.cache_data
 def load_data():
     try:
-        darwin = fetch_ucirepo(id=732)
-        X = darwin.data.features
-        y = darwin.data.targets
+        # Read the CSV file directly
+        data = pd.read_csv('data.csv')
         
-        # Handle ID column
-        id_column = None
-        for col in X.columns:
-            if 'id' in col.lower():
-                id_column = col
-                break
+        # Separate features and target
+        if 'target' in data.columns:
+            y = data['target']
+            X = data.drop('target', axis=1)
+        else:
+            # If target is the last column
+            y = data.iloc[:, -1]
+            X = data.iloc[:, :-1]
         
-        if id_column:
-            # Store ID column separately if needed
-            ids = X[id_column].copy()
-            # Drop ID column from features
-            X = X.drop(columns=[id_column])
+        # Convert y to 1D array
+        y = y.values.ravel()
         
-        # Convert all columns to numeric, replacing any errors with NaN
-        X = X.apply(pd.to_numeric, errors='coerce')
+        # Remove any ID columns (usually first column)
+        if 'id' in X.columns.str.lower():
+            X = X.drop(columns=[col for col in X.columns if 'id' in col.lower()])
         
-        # Check for any remaining non-numeric columns or NaN values
-        nan_columns = X.columns[X.isna().any()].tolist()
-        if nan_columns:
-            raise ValueError(f"The following columns contain non-numeric values: {nan_columns}")
+        # Convert all remaining columns to float
+        X = X.astype(float)
         
-        return X, y, darwin.metadata, darwin.variables
+        return X, y, None, None
     except Exception as e:
-        raise Exception(f"Error processing data: {str(e)}")
+        st.error(f"Error loading data: {str(e)}")
+        return None, None, None, None
 
-try:
-    X, y, metadata, variables = load_data()
-    
+# Load and process data
+X, y, metadata, variables = load_data()
+
+if X is not None and y is not None:
     # Main navigation
     page = st.sidebar.selectbox(
         "Navigation",
@@ -73,7 +71,6 @@ try:
         show_visualizations(X, y)
     elif page == "Model Prediction":
         show_model_prediction(X, y)
-        
-except Exception as e:
-    st.error(f"Error loading data: {str(e)}")
-    st.info("Please ensure all features are numeric and properly formatted. Check the error message for details about problematic columns.")
+else:
+    st.error("Failed to load the dataset. Please check if the data.csv file exists and is properly formatted.")
+    st.info("The data.csv file should contain features and a target column, with all feature columns being numeric.")
