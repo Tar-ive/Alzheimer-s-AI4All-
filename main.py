@@ -5,6 +5,7 @@ from components.dataset_info import show_dataset_info
 from components.feature_analysis import show_feature_analysis
 from components.model_prediction import show_model_prediction
 from components.visualizations import show_visualizations
+from components.advanced_analysis import show_advanced_analysis
 
 # Page config
 st.set_page_config(
@@ -59,7 +60,7 @@ if X is not None and y is not None:
     # Main navigation
     page = st.sidebar.selectbox(
         "Navigation",
-        ["Dataset Information", "Feature Analysis", "Visualizations", "Model Prediction"]
+        ["Dataset Information", "Feature Analysis", "Advanced Analysis", "Visualizations", "Model Prediction"]
     )
     
     # Page routing
@@ -67,6 +68,8 @@ if X is not None and y is not None:
         show_dataset_info(metadata, variables)
     elif page == "Feature Analysis":
         show_feature_analysis(X, y)
+    elif page == "Advanced Analysis":
+        show_advanced_analysis(X, y)
     elif page == "Visualizations":
         show_visualizations(X, y)
     elif page == "Model Prediction":
