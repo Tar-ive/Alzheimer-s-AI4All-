@@ -67,6 +67,13 @@ The application will be available at `http://localhost:5000`
   * visualizations.py: Data visualization components
   * advanced_analysis.py: Statistical analysis tools
 
+## Development
+
+Developed for AI4All Ignite.
+
+Frontend Streamlit Application developed by Saksham Adhikari
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Saksham_Adhikari-blue?style=flat-square&logo=linkedin)](https://www.linkedin.com/in/saksham-adhikari-4727571b5/)
+
 ## License
 
 This project is open-source. The DARWIN dataset is licensed under Creative Commons Attribution 4.0 International (CC BY 4.0).
