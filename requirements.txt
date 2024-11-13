@@ -6,3 +6,4 @@ seaborn>=0.13.2
 streamlit>=1.39.0
 ucimlrepo>=0.0.7
 pytest>=7.0  # Development dependency; remove if not needed in production
+pip == 24.3.1
